@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/anjas.js"></script>
+</head>
+<body style="
+display:flex;
+vertical-align: center;
+justify-content: center;
+height: 100%;">
+  <div style="align-self: center;border-style: solid;border-width: 4px;border-radius: 5px; padding:20px;width: 70%;">
+    <div>
+      Breadth First Search
+    </div>
+
+    <div>Input sambungan node. Contoh : A > B</div>
+
+    <div style="display:flex;justify-content: center;align-items: center;">
+      <input class="nodeAwal" style="flex:1" type="text" placeholder="A">
+      <div style="width:50px;align-self: center;text-align: center;">&gt;</div>
+      <input class="nodeTujuan" style="flex:1" type="text" placeholder="B">
+      <button style="width:10%; margin-left:20px;" onclick="tambahNode()">Input</button>
+    </div>
+
+    <div style="margin-top:10px">Daftar input :</div>
+    <div class="daftarNode" style="border-style: solid;border-width: 2px;padding:5px 10px;margin-bottom: 100px;border-color:rgb(146, 146, 146)">
+    </div>
+
+    <div>Input arah rute :</div>
+    <div style="display:flex;justify-content: center;align-items: center;">
+      <input style="flex:1" placeholder="A" type="text" class="startLandmark">
+      <div style="width:50px;align-self: center;text-align: center;">&gt;</div>
+      <input style="flex:1" placeholder="B" type="text" class="goalLandmark">
+      <button style="width:10%; margin-left:20px;" onclick="rute()">Rute</button>
+    </div>
+
+    <div style="margin-top:10px">Path rute :</div>
+    <div class="pathRute" style="border-style: solid;border-width: 2px;padding:5px 10px;margin-bottom: 10px;border-color:rgb(146, 146, 146)">
+    </div>
+
+  </div>
+</body>
+</html>
