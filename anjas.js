@@ -11,31 +11,31 @@ class GraphLokasi {
   }
 }
 
-function dls(graph, node, goal, visited, path) {
-  visited.add(node);
-  path.push(node);
+function bfs(graph, start, goal, visited, path) {
+  const queue = [];
+  queue.push(start);
+  visited.add(start);
+  while(queue.length > 0){
+    const node = queue.pop();
+    path.push(node);
+    if (node === goal) {
+        return true;
+    }
 
-  if (node === goal) {
-      return true;
+    for (const sekeliling of graph.graph[node] || []) {
+        if (!visited.has(sekeliling)) {
+          queue.push(sekeliling);
+          visited.add(sekeliling);
+        }
+    }
   }
-
-  for (const sekeliling of graph.graph[node] || []) {
-      if (!visited.has(sekeliling)) {
-          if (dls(graph, sekeliling, goal, visited, path)) {
-              return true;
-          }
-      }
-  }
-
-  path.pop();
   return false;
 }
 
-function pencariRute(graph, start, goal,) {
+function pencariRute(graph, start, goal) {
   const visited = new Set();
   const path = [];
-
-  if (dls(graph, start, goal, visited, path)) {
+  if (bfs(graph, start, goal, visited, path)) {
     document.getElementsByClassName('pathRute')[0].textContent = `Rute yang diperoleh dari ${start} ke ${goal}: ${path.join(" > ")}`;
   } else {
     document.getElementsByClassName('pathRute')[0].textContent = `Tidak ditemukan rute dari ${start} ke ${goal}`;
